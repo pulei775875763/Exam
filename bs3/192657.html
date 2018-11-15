@@ -1,0 +1,7282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type='text/javascript' src="https://cdn.oss.kaoshixing.com/ksxing_static/plugins/tingyun/tingyun-rum-exam-pc.js"></script>
+    <script type='text/javascript' src="https://cdn.oss.kaoshixing.com/ksxing_static/plugins/tingyun/tingyun_rum_media_exam_pc.js"></script>
+    
+    <title>test</title>
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    
+        <link rel="shortcut icon" href="/static/base/images/new_logo.ico" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/bootstrap/css/bootstrap.min.css?v=246e02790957">
+    
+    <link rel="stylesheet" type="text/css" href="/static/plugins/IconFont/css/styles.min.css?v=155b8a0f0957">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/examFont/style.css?v=3a27dbe11557">
+    <link rel="stylesheet" type="text/css" href="/static/base/css/base.css?v=9f5c566a0857">
+    
+    <link rel="stylesheet" type="text/css" href="/static/exam/css/exam_style.css?v=b3d3602a8157">
+    
+    <style>
+        .loading-box{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: rgba(58,62,81,.5);
+            z-index: 2000;
+        }
+        .loading-inner{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin:auto;
+            width: 380px;
+            height: 181px;
+            box-sizing: border-box;
+            padding:40px 65px 32px;
+            background: #FFFFFF;
+            box-shadow: 0 1px 10px 0 rgba(0,0,0,0.10);
+            border-radius: 4px;
+        }
+        .loading-inner .loading-title{
+            text-align: center;
+            font-size: 20px;
+            color: #3A3E51;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .loading-inner .loading-num{
+            font-size: 10px;
+            color: #1A8CFE;
+            margin-bottom: 8px;
+        }
+        .loading-inner .loading-num span{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0;
+        }
+        .loading-inner .loading-bg{
+            position: relative;
+            background: #F1F3F8;
+            border-radius: 3px;
+            height: 4px;
+        }
+        .loading-inner .loading-develop{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            width:0;
+            background: #1A8CFE;
+
+        }
+        .loading-inner .loading-label{
+            font-size: 12px;
+            color: #B4B6BD;
+            margin-top: 20px;
+            text-align: center;
+        }
+        /*修复锚点定位bug*/
+        html {
+            padding: 0;
+        }
+        body {
+            padding-top: 70px;
+        }
+        .main.exam-mode {
+            padding-top: 0;
+        }
+        .body-wrapper .paper {
+            margin-top: 20px;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="/static/plugins/wangEditorExam/css/wangEditor.min.css?v=903737aa9357">
+    <!-- GrowingIO Analytics code version 2.1 -->
+    <!-- Copyright 2015-2017 GrowingIO, Inc. More info available at http://www.growingio.com -->
+    <script type='text/javascript'>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+
+        gio('init', '87d10bc8158a4ed0a2206a6f0bdd2a5c', {});
+
+        
+        //原CS1字段
+        gio('setUserId', '5352481');
+        //原CS2-10字段
+        gio('app.set', {
+            'company_id': '99861',
+            'company_name': '西南林业大学',
+            'company_right': '8'
+        });
+        
+
+        gio('send');
+    </script>
+    <!-- End GrowingIO Analytics code version: 2.1 -->
+</head>
+<body>
+<!-- loading -->
+<div class="spinner-wrapper" id="spinnerLoading">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="loading-box hidden" role="dialog">
+        <div class="loading-inner">
+            <p class="loading-title">交卷中</p>
+            <div class="loading-line">
+                <p class="loading-num">
+                   <span>0%</span>
+                </p>
+                <div class="loading-bg">
+                    <span class="loading-develop"></span>
+                </div>
+            </div>
+            <p class="loading-label">正在提交答案...</p>
+        </div>
+    </div>
+
+    <div class="main exam-mode">
+        <div class="header-wrapper">
+            
+            <div class="logo-wrapper">
+                <a href="/exam" title="logo">
+                    <img class="icon-logo logo-ksx" src="https://cdn.oss.kaoshixing.com/ksxing_static/website/base/logo-transparent-header.svg" />
+                </a>
+            </div>
+
+
+            <div class="exam-name ellipsis">test</div>
+            <div class="user ellipsis">
+                <i class="icon icon-a_nav_my"></i>
+                西南林业大学
+            </div>
+
+            <a type="button" class="btn btn-default logout" id="logoutBtn">
+                <i class="icon icon-a_btn_sign_out btn-icon-left"></i>
+                退出
+            </a>
+
+        </div>
+
+        <div class="body-wrapper">
+            <div class="body paper">
+        <div class="questions">
+            
+                <div class="questions-title" id="">单选题(共3题，合计3.0分)</div>
+            
+
+            <div class="questions-content">
+
+                                <div class="question-content" id="5bec3a404cc116335e82bb89" data-id="5bec3a404cc116335e82bb89"
+                                     data-commit="false">
+
+        <div class="question-operation operation-icon icon-mark" data-type="1"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+
+<div class="exam-question">
+    <span class="question-index ellipsis">1.</span>
+        在机场、商厦、地铁等公共场所乘自动扶梯时应靠（）站立,另一侧供有急事赶路的人快行。(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+                    <div class="select single-select a. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb891"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb89" data-name="key1"/>
+                        <label for="5bec3a404cc116335e82bb891">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">A. 左侧 </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+                    <div class="select single-select b. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb892"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb89" data-name="key2"/>
+                        <label for="5bec3a404cc116335e82bb892">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">B. 右侧 </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+                    <div class="select single-select c. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb893"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb89" data-name="key3"/>
+                        <label for="5bec3a404cc116335e82bb893">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">C. 中间  </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb88" data-id="5bec3a404cc116335e82bb88"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="1"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">2.</span>
+        一般性的拜访多以（）为最佳交往时间。(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+                    <div class="select single-select a. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb881"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb88" data-name="key1"/>
+                        <label for="5bec3a404cc116335e82bb881">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">A. 1小时左右 </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+                    <div class="select single-select b. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb882"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb88" data-name="key2"/>
+                        <label for="5bec3a404cc116335e82bb882">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">B. 半小时左右 </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+                    <div class="select single-select c. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb883"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb88" data-name="key3"/>
+                        <label for="5bec3a404cc116335e82bb883">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">C. 十分钟左右  </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb87" data-id="5bec3a404cc116335e82bb87"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="1"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">3.</span>
+        拜访他人应选择（）,并应提前打招呼。(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+                    <div class="select single-select a. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb871"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb87" data-name="key1"/>
+                        <label for="5bec3a404cc116335e82bb871">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">A. 清晨 </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+                    <div class="select single-select b. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb872"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb87" data-name="key2"/>
+                        <label for="5bec3a404cc116335e82bb872">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">B. 用餐时间 </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+                    <div class="select single-select c. ">
+                        <input type="radio" class="radioOrCheck hidden" data-type="1" id="5bec3a404cc116335e82bb873"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb87" data-name="key3"/>
+                        <label for="5bec3a404cc116335e82bb873">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">C. 节假日的下午或平日的晚饭后  </span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+            </div>
+        </div>
+    
+
+    
+    
+        
+        
+        
+        
+        
+        <div class="questions">
+            
+                <div class="questions-title" id="">多选题(共3题，合计3.0分，漏选错选不得分)</div>
+            
+
+            <div class="questions-content">
+                
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb80" data-id="5bec3a404cc116335e82bb80"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="2"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">1.</span>
+        以接待对象为标准划分的接待类型有
+(1.0分)
+</div>
+
+    <div class="answers">
+
+                    <div class="select multi-select a. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb801"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb80" data-name="key1"/>
+                        <label for="5bec3a404cc116335e82bb801">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">A. 公务接待
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select b. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb802"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb80" data-name="key2"/>
+                        <label for="5bec3a404cc116335e82bb802">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">B. 商务接待
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select c. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb803"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb80" data-name="key3"/>
+                        <label for="5bec3a404cc116335e82bb803">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">C. 上访接待
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select d. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb804"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb80" data-name="key4"/>
+                        <label for="5bec3a404cc116335e82bb804">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">D. 消费接待
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select e. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb805"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb80" data-name="key5"/>
+                        <label for="5bec3a404cc116335e82bb805">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">E. 朋友接待
+ </span>
+                        </label>
+                    </div>
+
+    </div>
+
+
+
+                                </div>
+
+                                <div class="question-content" id="5bec3a404cc116335e82bb7f" data-id="5bec3a404cc116335e82bb7f"
+                                     data-commit="false">
+                                    
+
+        <div class="question-operation operation-icon icon-mark" data-type="2"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">2.</span>
+        以目的的不同为标准划分的拜访类型有
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+
+                
+                    <div class="select multi-select a. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7f1"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7f" data-name="key1"/>
+                        <label for="5bec3a404cc116335e82bb7f1">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">A. 商业拜访
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select b. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7f2"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7f" data-name="key2"/>
+                        <label for="5bec3a404cc116335e82bb7f2">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">B. 政治拜访
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select c. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7f3"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7f" data-name="key3"/>
+                        <label for="5bec3a404cc116335e82bb7f3">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">C. 情感拜访
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select d. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7f4"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7f" data-name="key4"/>
+                        <label for="5bec3a404cc116335e82bb7f4">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">D. 礼节性拜访
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select e. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7f5"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7f" data-name="key5"/>
+                        <label for="5bec3a404cc116335e82bb7f5">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">E. 公务拜访
+ </span>
+                        </label>
+                    </div>
+
+    </div>
+                                </div>
+
+                                <div class="question-content" id="5bec3a404cc116335e82bb7e" data-id="5bec3a404cc116335e82bb7e"
+                                     data-commit="false">
+
+        <div class="question-operation operation-icon icon-mark" data-type="2"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+<div class="exam-question">
+    <span class="question-index ellipsis">3.</span>
+        名片的作用有
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+
+                    <div class="select multi-select a. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7e1"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7e" data-name="key1"/>
+                        <label for="5bec3a404cc116335e82bb7e1">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">A. 代替通话
+ </span>
+                        </label>
+                    </div>
+                
+                    <div class="select multi-select b. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7e2"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7e" data-name="key2"/>
+                        <label for="5bec3a404cc116335e82bb7e2">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">B. 代替便函
+ </span>
+                        </label>
+                    </div>
+
+                
+                    <div class="select multi-select c. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7e3"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7e" data-name="key3"/>
+                        <label for="5bec3a404cc116335e82bb7e3">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">C. 代替请柬
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+                    <div class="select multi-select d. ">
+                        <input type="checkbox" class="radioOrCheck hidden" data-type="2" id="5bec3a404cc116335e82bb7e4"
+                                 name="keyChk_questions_5bec3a404cc116335e82bb7e" data-name="key4"/>
+                        <label for="5bec3a404cc116335e82bb7e4">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct2"></i></span>
+                            <span class="words">D. 便于通知
+ </span>
+                        </label>
+                    </div>
+                
+
+                
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+            </div>
+        </div>
+    
+
+    
+    
+        
+        
+        
+        
+        
+        <div class="questions">
+            
+                <div class="questions-title" id="">判断题(共3题，合计3.0分)</div>
+            
+
+            <div class="questions-content">
+                
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb7d" data-id="5bec3a404cc116335e82bb7d"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="3"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">1.</span>
+        与他人交谈完毕就可以立即转身离开。
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+                    
+
+                    
+
+
+                    <div class="select judge rt">
+                        <input type="radio" class="radioOrCheck hidden" dat-type="3" id="5bec3a404cc116335e82bb7d1"
+                              name="keyJudge_questions_5bec3a404cc116335e82bb7d" data-name="key1" value="1"/>
+                        <label for="5bec3a404cc116335e82bb7d1">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">正确</span>
+                        </label>
+                    </div>
+
+                    <div class="select judge wg">
+                        <input type="radio" class="radioOrCheck hidden" questionsType="3" id="5bec3a404cc116335e82bb7d2"
+                              name="keyJudge_questions_5bec3a404cc116335e82bb7d" data-name="key2" value="0"/>
+                        <label for="5bec3a404cc116335e82bb7d2">
+                            <span class="select-icon"><i class="icon icon-m_exam_error"></i></span>
+                            <span class="words">错误</span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb7c" data-id="5bec3a404cc116335e82bb7c"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="3"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">2.</span>
+        使用手机时,手机不宜握在手里或挂在腰带上。
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+                    
+
+                    
+
+
+                    <div class="select judge rt">
+                        <input type="radio" class="radioOrCheck hidden" dat-type="3" id="5bec3a404cc116335e82bb7c1"
+                              name="keyJudge_questions_5bec3a404cc116335e82bb7c" data-name="key1" value="1"/>
+                        <label for="5bec3a404cc116335e82bb7c1">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">正确</span>
+                        </label>
+                    </div>
+
+                    <div class="select judge wg">
+                        <input type="radio" class="radioOrCheck hidden" questionsType="3" id="5bec3a404cc116335e82bb7c2"
+                              name="keyJudge_questions_5bec3a404cc116335e82bb7c" data-name="key2" value="0"/>
+                        <label for="5bec3a404cc116335e82bb7c2">
+                            <span class="select-icon"><i class="icon icon-m_exam_error"></i></span>
+                            <span class="words">错误</span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb7b" data-id="5bec3a404cc116335e82bb7b"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="3"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">3.</span>
+        行握手礼时,与多人同时握手时,可以交叉握手。
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+                    
+
+                    
+
+
+                    <div class="select judge rt">
+                        <input type="radio" class="radioOrCheck hidden" dat-type="3" id="5bec3a404cc116335e82bb7b1"
+                              name="keyJudge_questions_5bec3a404cc116335e82bb7b" data-name="key1" value="1"/>
+                        <label for="5bec3a404cc116335e82bb7b1">
+                            <span class="select-icon"><i class="icon icon-m_exam_correct"></i></span>
+                            <span class="words">正确</span>
+                        </label>
+                    </div>
+
+                    <div class="select judge wg">
+                        <input type="radio" class="radioOrCheck hidden" questionsType="3" id="5bec3a404cc116335e82bb7b2"
+                              name="keyJudge_questions_5bec3a404cc116335e82bb7b" data-name="key2" value="0"/>
+                        <label for="5bec3a404cc116335e82bb7b2">
+                            <span class="select-icon"><i class="icon icon-m_exam_error"></i></span>
+                            <span class="words">错误</span>
+                        </label>
+                    </div>
+                
+
+                
+
+                
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+            </div>
+        </div>
+    
+
+    
+    
+        
+        
+        
+        
+        
+        <div class="questions">
+            
+                <div class="questions-title" id="">填空题(共3题，合计3.0分)</div>
+            
+
+            <div class="questions-content">
+                
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb83" data-id="5bec3a404cc116335e82bb83"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="4"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">1.</span>
+        男性公务员应保持面部清洁，不蓄胡须，不留大鬓角（）（）（）发长要求        
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">1</span>
+                                <textarea name="key1"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">2</span>
+                                <textarea name="key2"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">3</span>
+                                <textarea name="key3"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb82" data-id="5bec3a404cc116335e82bb82"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="4"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">2.</span>
+        个人形象分（）（）（）（）和综合型五种类型。 
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">1</span>
+                                <textarea name="key1"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">2</span>
+                                <textarea name="key2"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">3</span>
+                                <textarea name="key3"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">4</span>
+                                <textarea name="key4"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb81" data-id="5bec3a404cc116335e82bb81"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="4"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">3.</span>
+        打招呼的方式一般有（）（）（）（）
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+
+                
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">1</span>
+                                <textarea name="key1"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">2</span>
+                                <textarea name="key2"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">3</span>
+                                <textarea name="key3"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+                
+
+                
+
+                
+                    
+                        <dd class="filled">
+                            <div class="input-group">
+                                <span class="input-group-addon">4</span>
+                                <textarea name="key4"  data-type="4" class="keyFill form-control expanding"
+                                          onpaste="return false" oncopy="return false"></textarea>
+                            </div>
+                        </dd>
+                    
+                
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+
+            
+        
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+            </div>
+        </div>
+    
+
+    
+    
+        
+        
+        
+        
+        
+        <div class="questions">
+            
+                <div class="questions-title" id="">问答题(共2题，合计2.0分)</div>
+            
+
+            <div class="questions-content">
+                
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb85" data-id="5bec3a404cc116335e82bb85"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="5"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">1.</span>
+        请简单表述一下中国在饮食方面的礼仪
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+        
+            
+            
+                    
+                    
+                
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+
+            
+            
+                
+
+                
+                    <div class="filled">
+                        <div class="keyCloze" data-type="5" id="keyCloze_5bec3a404cc116335e82bb85" style="min-height: 250px">
+                            
+                            
+                                
+                                
+                                
+                                
+                            
+                        </div>
+                        <input type="hidden" name="key1" value=''/>
+                        <input type="file" name="uploadFile" class="wang-upload-file hidden">
+                        <div class="file-list">
+                            
+                        </div>
+                    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+                            
+                    
+                
+                    
+                    
+                    
+                    
+                        
+                                
+                                <div class="question-content" id="5bec3a404cc116335e82bb84" data-id="5bec3a404cc116335e82bb84"
+                                     data-commit="false">
+                                    
+                                    
+
+                                    
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    
+
+
+
+
+
+        <div class="question-operation operation-icon icon-mark" data-type="5"
+             data-toggle="tooltip" data-placement="top" data-container="body" title="标记本题">
+            <i class="icon icon-p_exam_tag_de"></i>
+        </div>
+    
+
+
+
+
+
+    
+
+
+
+    
+
+
+<div class="exam-question">
+    <span class="question-index ellipsis">2.</span>
+        请简单说一下你对礼仪的认识与理解
+(1.0分)
+</div>
+
+
+
+
+
+
+
+    <div class="answers">
+
+                    <div class="filled">
+                        <div class="keyCloze" data-type="5" id="keyCloze_5bec3a404cc116335e82bb84" style="min-height: 250px">
+                        </div>
+                        <input type="hidden" name="key1" value=''/>
+                        <input type="file" name="uploadFile" class="wang-upload-file hidden">
+                        <div class="file-list">
+                            
+                        </div>
+                    </div>
+    </div>
+                                </div>
+                            
+                    
+                
+            </div>
+        </div>
+    
+
+
+
+            </div>
+
+
+            
+            
+                <div class="tech-support">
+                    <span class="company-name">考试星</span>
+                    提供技术支持
+                </div>
+            
+        </div>
+
+        <div class="nav-wrapper">
+            <div class="nav nav-status">
+                <ul class="menu-items">
+                    <li class="menu-item menu-item-time ">
+                        <div class="item-label">剩余时间</div>
+                        <div class="item-data" id="timeDown"></div>
+                    </li>
+                    <li class="menu-item menu-item-process">
+                        <div class="item-label">当前进度</div>
+                        <div class="item-data">
+                            <span id="commitCount">0</span>/<span id="totalCount">0</span>
+                        </div>
+                        <div class="item-process">
+                            <div class="item-process-bar" id="commitProcess"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav nav-operation">
+                <ul class="menu-items">
+                    <li class="menu-item menu-item-fontsize">
+                        <span class="item-icon fontsize-minus">－</span>
+                        <span class="item-label">字号</span>
+                        <span class="item-icon fontsize-plus">＋</span>
+                    </li>
+                    <li class="menu-item menu-item-lang" id="switchLangBtn">
+                        <i class="icon item-icon icon-a_landing_english"></i>
+                        <span class="item-label">English</span>
+                    </li>
+                    <li class="menu-item menu-item-card" id="numberCardBtn">
+                        <i class="icon item-icon icon-m_head_test_card"></i>
+                        <span class="item-label">答题卡</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-primary btn-nav" id="endExamBtn">提交</button>
+        </div>
+
+    </div>
+
+    
+    <input type="hidden" class="had-save-mark" />
+
+<div class="modal fade ksx" id="timeResetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-pc-message modal-time-reset" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-title">
+                        您的交卷时间已被修改为
+                    </div>
+                    <div class="delay-time"></div>
+                    <div class="tip">请及时调整答题进度</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="numberCardModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-number-card" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="title">答题卡</div>
+
+                    
+                        
+
+                    
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">单选题(共3题，合计3.0分)</div>
+                                    
+
+                                <div class="split"></div>
+
+                                <div class="box-list">
+                                    
+                                        
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb89" href="#5bec3a404cc116335e82bb89"
+                                                           questionsId="5bec3a404cc116335e82bb89" num="questions_5bec3a404cc116335e82bb89"
+                                                           perScore="1.0">1</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb88" href="#5bec3a404cc116335e82bb88"
+                                                           questionsId="5bec3a404cc116335e82bb88" num="questions_5bec3a404cc116335e82bb88"
+                                                           perScore="1.0">2</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb87" href="#5bec3a404cc116335e82bb87"
+                                                           questionsId="5bec3a404cc116335e82bb87" num="questions_5bec3a404cc116335e82bb87"
+                                                           perScore="1.0">3</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                </div>
+                            </div>
+                        
+
+                    
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">多选题(共3题，合计3.0分，漏选错选不得分)</div>
+                                    
+
+                                <div class="split"></div>
+
+                                <div class="box-list">
+                                    
+                                        
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb80" href="#5bec3a404cc116335e82bb80"
+                                                           questionsId="5bec3a404cc116335e82bb80" num="questions_5bec3a404cc116335e82bb80"
+                                                           perScore="1.0">1</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb7f" href="#5bec3a404cc116335e82bb7f"
+                                                           questionsId="5bec3a404cc116335e82bb7f" num="questions_5bec3a404cc116335e82bb7f"
+                                                           perScore="1.0">2</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb7e" href="#5bec3a404cc116335e82bb7e"
+                                                           questionsId="5bec3a404cc116335e82bb7e" num="questions_5bec3a404cc116335e82bb7e"
+                                                           perScore="1.0">3</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                </div>
+                            </div>
+                        
+
+                    
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">判断题(共3题，合计3.0分)</div>
+                                    
+
+                                <div class="split"></div>
+
+                                <div class="box-list">
+                                    
+                                        
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb7d" href="#5bec3a404cc116335e82bb7d"
+                                                           questionsId="5bec3a404cc116335e82bb7d" num="questions_5bec3a404cc116335e82bb7d"
+                                                           perScore="1.0">1</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb7c" href="#5bec3a404cc116335e82bb7c"
+                                                           questionsId="5bec3a404cc116335e82bb7c" num="questions_5bec3a404cc116335e82bb7c"
+                                                           perScore="1.0">2</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb7b" href="#5bec3a404cc116335e82bb7b"
+                                                           questionsId="5bec3a404cc116335e82bb7b" num="questions_5bec3a404cc116335e82bb7b"
+                                                           perScore="1.0">3</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                </div>
+                            </div>
+                        
+
+                    
+                        
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">填空题(共3题，合计3.0分)</div>
+                                    
+
+                                <div class="split"></div>
+
+                                <div class="box-list">
+                                    
+                                        
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb83" href="#5bec3a404cc116335e82bb83"
+                                                           questionsId="5bec3a404cc116335e82bb83" num="questions_5bec3a404cc116335e82bb83"
+                                                           perScore="1.0">1</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb82" href="#5bec3a404cc116335e82bb82"
+                                                           questionsId="5bec3a404cc116335e82bb82" num="questions_5bec3a404cc116335e82bb82"
+                                                           perScore="1.0">2</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                        
+                                        
+                                            
+                                                    
+                                                            
+                                                        
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb81" href="#5bec3a404cc116335e82bb81"
+                                                           questionsId="5bec3a404cc116335e82bb81" num="questions_5bec3a404cc116335e82bb81"
+                                                           perScore="1.0">3</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                
+                                        <div class="card-content-title">问答题(共2题，合计2.0分)</div>
+
+                                <div class="split"></div>
+                                <div class="box-list">
+                                    
+
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb85" href="#5bec3a404cc116335e82bb85"
+                                                           questionsId="5bec3a404cc116335e82bb85" num="questions_5bec3a404cc116335e82bb85"
+                                                           perScore="1.0">1</a>
+                                                    </div>
+
+                                                    <div class="box normal-box s1">
+                                                        <a class="iconBox questions_5bec3a404cc116335e82bb84" href="#5bec3a404cc116335e82bb84"
+                                                           questionsId="5bec3a404cc116335e82bb84" num="questions_5bec3a404cc116335e82bb84"
+                                                           perScore="1.0">2</a>
+                                                    </div>
+                                                
+                                        
+                                    
+                                </div>
+                            </div>
+                        
+
+                    
+
+                </div>
+                <div class="modal-footer">
+                    <span class="box icon-box s2"></span>
+                    <span class="icon-label">已答</span>
+                    <span class="box icon-box s1"></span>
+                    <span class="icon-label">未答</span>
+                    <span class="box icon-box marked"></span>
+                    <span class="icon-label">标记</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="endExamModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-pc-message" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-title"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" id="confirmEndExamBtn">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="resultInquireModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-pc-message" role="document">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body">
+                    <div class="modal-title">交卷中，请耐心等待...</div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-pc-message modal-logout" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-title">您是否要退出登录？</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="confirmLogoutBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/static/base/js/jquery.min.js?v=8101d596b257"></script>
+<script type="text/javascript" src="/static/plugins/bootstrap/js/bootstrap.min.js?v=87d37353ad57"></script>
+<script type="text/javascript">
+    
+    var companyId = "99861"; //公司id
+    var exam_info_id = "192657"; //考试ID
+    var exam_results_id = "8376239"; //考试关联ID
+</script>
+<script type="text/javascript" src="/static/base/js/exam-base.js?v=781e13cc3e57"></script>
+<script type="text/javascript" src="/static/plugins/wangEditorExam/js/wangEditor.js?v=5972ed3d5357"></script>
+    <script type="text/javascript" src="/static/plugins/wangEditorExam/js/uploadFile.js?v=0e4024348957"></script>
+    <script type="text/javascript" src="/static/plugins/FlashWavRecorder/basic.js?v=166ff0293557"></script>
+    <script type="text/javascript" src="/static/plugins/FlashWavRecorder/swfobject.js?v=207b97304f57"></script>
+    <script type="text/javascript" src="/static/plugins/FlashWavRecorder/recorder.js?v=f8e8a6e16b57"></script>
+    <script type="text/javascript" src="/static/plugins/expanding.js?v=605318526f57"></script>
+    <script type="text/javascript" src="/static/plugins/stickUp/stickUp.min.js?v=125ba0241757"></script>
+    <script type="text/javascript" src="/static/plugins/screenfull.js?v=691b32727c57"></script>
+    <script type="text/javascript" src="/static/plugins/webcam/jquery.webcam.js?v=fb47d436f357"></script>
+    <script type="text/javascript" src="/static/exam/js/exam_answer.js?v=db9107520857"></script>
+    <script type="text/javascript">
+        //考试计时
+        var timeDownInterval;
+        //考试总时长
+        var answer_time = parseInt(3600);
+        //考试剩余总时长
+        var answer_time_left = parseInt(3600);
+        //考试消耗时长
+        var consume_time = getCookie("consume_time_"+exam_results_id);
+        //全屏防作弊参数
+        var set_full_screen = "1";
+        //切换次数
+        var blur_count="0";
+        //考生id
+        var examUserId = "5352481";
+        //无操作防作弊静止时间
+        var quietSecond = "0";
+        //设置无操作防作弊
+        var setQuietCheat = "0";
+        //拍照防作弊参数
+        var capture="0";
+        //答题时长（是否不限时长）
+        var examTimeRestrict = 1;
+        //答题进度
+        function commitProcess(id, status) {
+            //id: 试题id，status：true答题，false取消
+            var commitLength, totalLength;
+            if(status){
+                $("#numberCardModal a.questions_"+id).parent(".box").removeClass("s1").addClass("s2");
+                $(".question-content[data-id="+id+"]").attr("data-commit", "true");
+            }else {
+                $("#numberCardModal a.questions_"+id).parent(".box").removeClass("s2").addClass("s1");
+                $(".question-content[data-id="+id+"]").attr("data-commit", "false");
+            }
+            commitLength = $("#numberCardModal .modal-body .box.s2").length;
+            totalLength = $("#numberCardModal .modal-body .box").length;
+
+            $("#commitCount").text(commitLength);
+            $("#totalCount").text(totalLength);
+            $("#commitProcess").css({
+                width: commitLength*100/totalLength + 'px'
+            });
+        }
+
+    </script>
+</body>
+</html>
