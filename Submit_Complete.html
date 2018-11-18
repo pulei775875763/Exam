@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Waiting!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <style>
+        .out {
+            width: 1200px;
+            height: 20px;
+            border: 2px solid blue;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 400px auto;
+            position: relative;
+        }
+        .inner {
+            height: 20px;
+            width: 0;
+            background-color: #c02e96;
+        }
+        span {
+            color: #ff0c19;
+            font-size: 18px;
+            line-height: 20px;
+            position: absolute;
+            left: 50%;
+        }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.inner').animate({
+                // 动画的终点是inner的宽度等于out的宽度
+                width: $('.out').width(),
+            }, 10000, function () {
+                alert('提交完毕');
+            })
+            //设置计时器,动态的改变span的文本显示
+            var timerID = setInterval(function () {
+                // 显示进度百分比
+                var num = Math.floor($('.inner').width() / $('.out').width() * 100);
+                $('span').html(num + '%');
+
+            }, 100)
+        })
+    </script>
+
+</head>
+
+<body style="background-color: #79aefe">
+
+<div class="modal-body">
+<div class = "out">
+    <div class="inner">
+
+        <span>0%</span>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+</html>
