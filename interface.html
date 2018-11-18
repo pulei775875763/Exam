@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-
-<div style=""></div>
-
 <body style="position: relative;z-index: auto">
-<div class="range">
+<!--这是网页头-->
+<div class="head1">
     <ul class="nav navbar-nav navbar-left">
         <a class="navbar-brand text-decoration:none" style="text-decoration: none">
             在线考试系统</a>
@@ -25,22 +23,21 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My account <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="#">个人信息</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="#">退出登录</a></li>
             </ul>
         </li>
     </ul>
 </div>
+<!--这是左侧拉伸菜单栏-->
 <div id="wrapper">
     <div class="overlay"></div>
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
             <li class="sidebar-brand">
                 <a href="#">
-                    教师管理页面
+                    学生考试管理
                 </a>
             </li>
             <li class="dropdown">
@@ -74,21 +71,156 @@
     <!-- /#page-content-wrapper -->
 
 </div>
-<!-- /#wrapper -->
 
-<div class="replace">
+<!--这是表格-->
+<div class="table1">
     <div class="panel panel-primary">
         <div class="panel panel-heading">
-            管理
+            学生成绩信息表管理
         </div>
         <div class="panel panel-body">
-            <h1>asdsdfsda</h1>
-            <h1>asdsdfsda</h1>
-            <h1>asdsdfsda</h1>
-            <h1>asdsdfsda</h1>
+            <table border="1" width="90%" align="center">
+                <tr>
+                    <th>学生名字</th>
+                    <th>学生学号</th>
+                    <th>考试科目</th>
+                    <th>考试成绩</th>
+                    <th>操&nbsp&nbsp&nbsp作</th>
+                </tr>
+                <tr>
+                    <td>小明</td>
+                    <td>20180000001</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">81</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小刚</td>
+                    <td>20180000003</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">64</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小刘</td>
+                    <td>20180000006</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">91</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小王</td>
+                    <td>20180000005</td>
+                    <td>C语言</td>
+                    <td bgcolor="red">59</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小华</td>
+                    <td>20180000045</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">73</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小班</td>
+                    <td>20180000002</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">73</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小诺</td>
+                    <td>20180000051</td>
+                    <td>C语言</td>
+                    <td bgcolor="red">23</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小德</td>
+                    <td>20180000016</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">63</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小新</td>
+                    <td>20180000020</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">93</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小宣</td>
+                    <td>20180000072</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">77</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>小乐</td>
+                    <td>20180000032</td>
+                    <td>C语言</td>
+                    <td bgcolor="green">66</td>
+                    <td>
+                        <a href="#">删除</a>&nbsp&nbsp&nbsp&nbsp
+                        <a href="#">修改</a>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br>
+            <div align="center">
+                <a href="#">上一页</a>&nbsp
+                <a>1</a>&nbsp
+                <a href="#">2</a>&nbsp
+                <a href="#">3</a>&nbsp
+                <a href="#">4</a>&nbsp
+                <a href="#">5</a>&nbsp
+                <a href="#">6</a>&nbsp
+                <a href="#">7</a>&nbsp
+                <a href="#">8</a>&nbsp
+                <a href="#">9</a>&nbsp
+                <a href="#">下一页</a>&nbsp
+                <a href="#">尾页</a>
+            </div>
         </div>
     </div>
 </div>
+
+
+
+
+
 
 
 
